@@ -22,7 +22,9 @@
   "renovate-config": {
     "default": {
       "extends": [
-        "config:base"
+        "config:base",
+        "github>hatena/renovate-config:automergePin",
+        "github>hatena/renovate-config:automergeTypesMinor"
       ],
       "timezone": "Asia/Tokyo",
       "schedule": [
@@ -34,9 +36,44 @@
           "before 3am on the first day of the month"
         ]
       },
-      "minor": {
-        "groupName": "all dependencies"
+      "automerge": true,
+      "major": {
+        "automerge": false
       }
+    },
+    "storybook": {
+      "extends": [
+        "@digitalcube:default"
+      ],
+      "packageRules": [{
+        "packagePatterns": [
+          "@storybook/*"
+        ],
+        "automerge": true,
+        "groupName": "Storybook"
+      }]
+    },
+    "redux": {
+      "extends": [
+        "@digitalcube:default"
+      ],
+      "packageRules": [{
+        "packagePatterns": [
+          "redux*"
+        ]
+      }]
+    },
+    "aws-frontendjs": {
+      "extends": [
+        "@digitalcube:default"
+      ],
+      "packageRules": [{
+        "packagePatterns": [
+          "aws*",
+          "amazon*"
+        ],
+        "groupName": "AWS Frontend SDKs"
+      }]
     },
     "aws-cdk": {
       "extends": [
@@ -56,12 +93,13 @@
             "@aws-cdk/*",
             "aws-cdk"
           ],
+          "automerge": true,
+          "major": {
+            "automerge": false
+          },
           "groupName": "CDK-Resources"
         }
-      ],
-      "minor": {
-        "groupName": "all dependencies"
-      }
+      ]
     },
     "examples": {
       "extends": [
