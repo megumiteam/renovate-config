@@ -22,20 +22,8 @@
   "renovate-config": {
     "default": {
       "extends": [
-        "config:base",
-        "github>hatena/renovate-config:automergePin",
-        "github>hatena/renovate-config:automergeTypesMinor"
+        "@wpkyoto:default"
       ],
-      "timezone": "Asia/Tokyo",
-      "schedule": [
-        "every weekend"
-      ],
-      "lockFileMaintenance": {
-        "enabled": true,
-        "schedule": [
-          "before 3am on the first day of the month"
-        ]
-      },
       "automerge": true,
       "major": {
         "automerge": false
@@ -77,39 +65,15 @@
     },
     "aws-cdk": {
       "extends": [
-        "config:base"
-      ],
-      "timezone": "Asia/Tokyo",
-      "schedule": ["every weekend"],
-      "lockFileMaintenance": {
-        "enabled": true,
-        "schedule": [
-          "before 3am on the first day of the month"
-        ]
-      },
-      "packageRules": [
-        {
-          "packagePatterns": [
-            "@aws-cdk/*",
-            "aws-cdk"
-          ],
-          "automerge": true,
-          "major": {
-            "automerge": false
-          },
-          "groupName": "CDK-Resources"
-        }
+        "@wpkyoto:aws-cdk"
       ]
     },
     "examples": {
       "extends": [
-        "config:base"
+        "@wpkyoto:example"
       ],
       "automerge": true,
       "vulnerabilityAlerts": {
-        "enabled": true
-      },
-      "lockFileMaintenance": {
         "enabled": true
       },
       "minor": {
