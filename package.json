@@ -88,7 +88,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "9.0.1",
-    "@commitlint/config-conventional": "9.0.1",
+    "@commitlint/config-conventional": "9.1.2",
     "husky": "4.2.5",
     "lint-staged": "10.2.11",
     "renovate": "21.16.3",
